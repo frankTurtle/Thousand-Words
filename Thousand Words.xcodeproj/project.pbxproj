@@ -15,6 +15,9 @@
 		101ED37D1B82828A003011AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 101ED37C1B82828A003011AB /* Images.xcassets */; };
 		101ED3801B82828A003011AB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101ED37E1B82828A003011AB /* LaunchScreen.xib */; };
 		101ED38C1B82828A003011AB /* Thousand_WordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101ED38B1B82828A003011AB /* Thousand_WordsTests.m */; };
+		101ED3961B8284A0003011AB /* Test_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */; };
+		101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101ED3981B82853D003011AB /* AlbumTableViewController.m */; };
+		101ED39C1B828866003011AB /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 101ED39B1B828866003011AB /* Album.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 		101ED3851B82828A003011AB /* Thousand WordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Thousand WordsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		101ED38A1B82828A003011AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		101ED38B1B82828A003011AB /* Thousand_WordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Thousand_WordsTests.m; sourceTree = "<group>"; };
+		101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test_Storyboard.storyboard; sourceTree = "<group>"; };
+		101ED3971B82853D003011AB /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
+		101ED3981B82853D003011AB /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
+		101ED39A1B828866003011AB /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		101ED39B1B828866003011AB /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +93,13 @@
 			children = (
 				101ED3701B828289003011AB /* AppDelegate.h */,
 				101ED3711B82828A003011AB /* AppDelegate.m */,
+				101ED3971B82853D003011AB /* AlbumTableViewController.h */,
+				101ED3981B82853D003011AB /* AlbumTableViewController.m */,
+				101ED39A1B828866003011AB /* Album.h */,
+				101ED39B1B828866003011AB /* Album.m */,
 				101ED3761B82828A003011AB /* ViewController.h */,
 				101ED3771B82828A003011AB /* ViewController.m */,
+				101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */,
 				101ED3791B82828A003011AB /* Main.storyboard */,
 				101ED37C1B82828A003011AB /* Images.xcassets */,
 				101ED37E1B82828A003011AB /* LaunchScreen.xib */,
@@ -203,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101ED37B1B82828A003011AB /* Main.storyboard in Resources */,
+				101ED3961B8284A0003011AB /* Test_Storyboard.storyboard in Resources */,
 				101ED3801B82828A003011AB /* LaunchScreen.xib in Resources */,
 				101ED37D1B82828A003011AB /* Images.xcassets in Resources */,
 			);
@@ -222,8 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */,
 				101ED3721B82828A003011AB /* AppDelegate.m in Sources */,
 				101ED36F1B828289003011AB /* main.m in Sources */,
+				101ED39C1B828866003011AB /* Album.m in Sources */,
 				101ED3781B82828A003011AB /* ViewController.m in Sources */,
 				101ED3751B82828A003011AB /* Thousand_Words.xcdatamodeld in Sources */,
 			);
