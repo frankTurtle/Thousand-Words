@@ -48,11 +48,15 @@
 }
 
 #pragma mark - Alert View Delegate Method
+// Method to deal with user adding a new album
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if (buttonIndex == 1) //.................................................................................. if user clicks Add button
     {
-        NSString *alertText = [alertView textFieldAtIndex:0].text;
+        NSString *alertText = [alertView textFieldAtIndex:0].text; //......................................... gets the text from the text field
+        [self.cellData addObject:[self albumWithName:alertText]]; //.......................................... create a new Album object, saved to CoreData with name from text field
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.cellData count] - 1 inSection:0]; //...... index path to insert
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade]; //. insert into table view cell
     }
 }
 
@@ -92,15 +96,14 @@
     return [_cellData count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Album *selectedAlbum = self.cellData[indexPath.row]; //...................................................... get the current album
+    cell.textLabel.text = selectedAlbum.name; //................................................................. set the cell text label
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
