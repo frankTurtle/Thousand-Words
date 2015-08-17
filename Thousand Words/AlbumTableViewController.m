@@ -7,6 +7,7 @@
 //
 
 #import "AlbumTableViewController.h"
+#import "Album.h"
 
 @interface AlbumTableViewController () <UIAlertViewDelegate>
 
@@ -53,6 +54,25 @@
     {
         NSString *alertText = [alertView textFieldAtIndex:0].text;
     }
+}
+
+#pragma mark - Helper
+// Method to return an album object with the name
+-(Album *)albumWithName:(NSString *)name
+{
+    id delegate = [[UIApplication sharedApplication] delegate]; //................... get app delegate
+    NSManagedObjectContext *context = [delegate managedObjectContext]; //............ get NSMAnaged context from app delegate
+    
+    Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album"
+                                                 inManagedObjectContext:context]; //. create new album object
+    album.name = name; //............................................................ set name
+    album.date = [NSDate date]; //................................................... set date
+    
+    NSError *error = nil; //......................................................... create an error object
+    if (![context save:&error]) //................................................... if we get an error
+        NSLog(@"%@", error); //...................................................... log it
+    
+    return album;
 }
 
 - (void)didReceiveMemoryWarning {
