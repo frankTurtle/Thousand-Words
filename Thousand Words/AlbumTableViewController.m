@@ -8,7 +8,7 @@
 
 #import "AlbumTableViewController.h"
 
-@interface AlbumTableViewController ()
+@interface AlbumTableViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -30,6 +30,29 @@
         _cellData = [NSMutableArray new];
     
     return _cellData;
+}
+
+#pragma mark - Button
+- (IBAction)addAlbumButtonPressed:(UIBarButtonItem *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter new album name"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Add", nil];
+    
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [alert show];
+}
+
+#pragma mark - Alert View Delegate Method
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        NSString *alertText = [alertView textFieldAtIndex:0].text;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
