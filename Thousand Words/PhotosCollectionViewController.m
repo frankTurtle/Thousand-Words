@@ -27,12 +27,19 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     NSSet *unorderedPhotos = self.album.photos; //.................................................................... create set of all photos from the album
     NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                      ascending:YES]; //............................... create sort descriptor using the date in ascending order
     NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]]; //....................... create an arrary full of sorted photos
     self.photos = [sortedPhotos mutableCopy]; //...................................................................... assign to our property photos
+    
+    [self.collectionView reloadData]; //.............................................................................. relaod data from core data
 }
 
 // if photos doesnt exist, fix it.
@@ -55,8 +62,6 @@ static NSString * const reuseIdentifier = @"Cell";
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Here");
-    
     if ([segue.identifier isEqualToString:@"detailSegue"]) //........................................... if were seguing to detail segue
     {
         if ([segue.destinationViewController isKindOfClass:[PhotoDetailViewController class]]) //....... make sure VC is PhotoDetailVC
