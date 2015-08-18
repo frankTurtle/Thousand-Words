@@ -11,6 +11,7 @@
 #import "Photo.h"
 #import "PictureDataTransformer.h"
 #import "CoreDataHelper.h"
+#import "PhotoDetailViewController.h"
 
 @interface PhotosCollectionViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -48,17 +49,29 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Here");
+    
+    if ([segue.identifier isEqualToString:@"detailSegue"]) //........................................... if were seguing to detail segue
+    {
+        if ([segue.destinationViewController isKindOfClass:[PhotoDetailViewController class]]) //....... make sure VC is PhotoDetailVC
+        {
+            PhotoDetailViewController *targetVC = segue.destinationViewController; //................... create an instance of the destinationVC
+            NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject]; //.. create an index for which cell was pressed ( get last object )
+            
+            Photo *selectedPhoto = self.photos[indexPath.row]; //....................................... create a photo object from photos array
+            targetVC.photo = selectedPhoto; //.......................................................... set target VC photo the one just created
+        }
+    }
 }
-*/
 
-#pragma mark <UICollectionViewDataSource>
+
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -78,7 +91,12 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
+
+//#pragma mark <UICollectionViewDelegate>
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

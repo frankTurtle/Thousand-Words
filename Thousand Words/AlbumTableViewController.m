@@ -130,6 +130,8 @@
             PhotosCollectionViewController *targetVC = segue.destinationViewController;
             
             targetVC.album = self.cellData[index.row];
+            
+            NSLog(@"here");
         }
     }
 }

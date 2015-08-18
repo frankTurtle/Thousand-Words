@@ -7,6 +7,7 @@
 //
 
 #import "PhotoDetailViewController.h"
+#import "Photo.h"
 
 @interface PhotoDetailViewController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+// Method to update the image in the UIImageView
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.imageView.image = self.photo.image;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +43,16 @@
 }
 */
 
-- (IBAction)addFilterButtonPressed:(id)sender {
+- (IBAction)addFilterButtonPressed:(id)sender
+{
+    
 }
 
-- (IBAction)deleteButtonPressed:(id)sender {
+// Method to handle the delete button being pressed
+- (IBAction)deleteButtonPressed:(id)sender
+{
+    [[self.photo managedObjectContext] deleteObject:self.photo]; //.. delete the photo object
+    
+    [self.navigationController popViewControllerAnimated:YES]; //.... used a push segue to get here, pop the current one off stack
 }
 @end

@@ -62,9 +62,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="OYP-7P-oU6" kind="show" id="nT1-se-VUe"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -82,6 +79,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="OYP-7P-oU6" kind="show" identifier="detailSegue" id="dkR-aK-tBz"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95L-H1-Hbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,10 +99,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-Da-r9Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-Da-r9Z">
                                 <rect key="frame" x="0.0" y="64" width="600" height="417"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-2O-1sB">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-2O-1sB">
                                 <rect key="frame" x="538" y="506" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,7 +111,7 @@
                                     <action selector="deleteButtonPressed:" destination="OYP-7P-oU6" eventType="touchUpInside" id="jvR-BW-1NV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-sd-y5b">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-sd-y5b">
                                 <rect key="frame" x="16" y="506" width="67" height="30"/>
                                 <state key="normal" title="Add Filter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,7 +122,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S1Y-sd-y5b" firstAttribute="top" secondItem="EUn-Da-r9Z" secondAttribute="bottom" constant="10" id="5G7-Yu-FK7"/>
+                            <constraint firstItem="RGX-2O-1sB" firstAttribute="leading" secondItem="S1Y-sd-y5b" secondAttribute="trailing" constant="20" id="Jz2-t8-9fk"/>
+                            <constraint firstItem="BY3-vq-nZ2" firstAttribute="top" secondItem="S1Y-sd-y5b" secondAttribute="bottom" constant="10" id="L7H-wz-Aab"/>
+                            <constraint firstItem="S1Y-sd-y5b" firstAttribute="leading" secondItem="95g-jb-VHq" secondAttribute="leading" constant="20" id="ROE-nj-IEZ"/>
+                            <constraint firstItem="RGX-2O-1sB" firstAttribute="top" secondItem="EUn-Da-r9Z" secondAttribute="bottom" constant="10" id="apd-Uk-UqN"/>
+                            <constraint firstAttribute="trailing" secondItem="RGX-2O-1sB" secondAttribute="trailing" constant="20" id="byB-cx-lQh"/>
+                            <constraint firstItem="RGX-2O-1sB" firstAttribute="leading" secondItem="S1Y-sd-y5b" secondAttribute="trailing" constant="20" id="nMb-3f-RqA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sjJ-nx-A0l"/>
                     <connections>
                         <outlet property="imageView" destination="EUn-Da-r9Z" id="GfB-fJ-DKR"/>
                     </connections>
