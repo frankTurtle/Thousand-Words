@@ -9,6 +9,7 @@
 #import "AlbumTableViewController.h"
 #import "Album.h"
 #import "CoreDataHelper.h"
+#import "PhotosCollectionViewController.h"
 
 @interface AlbumTableViewController () <UIAlertViewDelegate>
 
@@ -115,6 +116,22 @@
     cell.textLabel.text = selectedAlbum.name; //................................................................. set the cell text label
     
     return cell;
+}
+
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Album Chosen"])
+    {
+        if ([segue.destinationViewController isKindOfClass:[PhotosCollectionViewController class]])
+        {
+            NSIndexPath *index = [self.tableView indexPathForSelectedRow];
+            
+            PhotosCollectionViewController *targetVC = segue.destinationViewController;
+            
+            targetVC.album = self.cellData[index.row];
+        }
+    }
 }
 
 @end
