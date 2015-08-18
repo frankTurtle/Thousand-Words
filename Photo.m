@@ -12,8 +12,8 @@
 
 @implementation Photo
 
-@dynamic image;
 @dynamic date;
+@dynamic image;
 @dynamic albumBook;
 
 @end

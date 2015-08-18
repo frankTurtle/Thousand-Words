@@ -7,7 +7,7 @@
 //
 
 #import "Album.h"
-#import "NSManagedObject.h"
+#import "Photo.h"
 
 
 @implementation Album

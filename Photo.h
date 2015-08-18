@@ -13,8 +13,8 @@
 
 @interface Photo : NSManagedObject
 
-@property (nonatomic, retain) id image;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) id image;
 @property (nonatomic, retain) Album *albumBook;
 
 @end

@@ -25,13 +25,13 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    NSSet *unorderedPhotos = self.album.photos; //.................................................................... create set of all photos from the album
+    NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+                                                                     ascending:YES]; //............................... create sort descriptor using the date in ascending order
+    NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]]; //....................... create an arrary full of sorted photos
+    self.photos = [sortedPhotos mutableCopy]; //...................................................................... assign to our property photos
 }
 
 // if photos doesnt exist, fix it.
