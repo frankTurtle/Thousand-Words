@@ -34,4 +34,9 @@
 }
 */
 
+- (IBAction)addFilterButtonPressed:(id)sender {
+}
+
+- (IBAction)deleteButtonPressed:(id)sender {
+}
 @end
