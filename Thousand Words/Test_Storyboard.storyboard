@@ -119,7 +119,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jND-w9-NzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111" y="-389"/>
+            <point key="canvasLocation" x="3808" y="411"/>
         </scene>
         <!--Photo Detail View Controller-->
         <scene sceneID="qam-ot-TMb">
@@ -152,6 +152,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addFilterButtonPressed:" destination="OYP-7P-oU6" eventType="touchUpInside" id="O0u-8j-6fC"/>
+                                    <segue destination="q6h-Wz-dC7" kind="show" identifier="toFilterSegue" id="fhl-GM-2gQ"/>
                                 </connections>
                             </button>
                         </subviews>
