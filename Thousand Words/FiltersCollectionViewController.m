@@ -10,6 +10,8 @@
 
 @interface FiltersCollectionViewController ()
 
+@property (strong,nonatomic) NSMutableArray *filters; //.. property to hold all filter objects
+
 @end
 
 @implementation FiltersCollectionViewController
@@ -28,6 +30,14 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
 }
 
+-(NSMutableArray *)filters
+{
+    if (!_filters)
+        _filters = [NSMutableArray new];
+    
+    return _filters;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -43,16 +53,14 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
     return 0;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
     return 0;
 }
 
@@ -60,6 +68,8 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+    
+    
     
     return cell;
 }
