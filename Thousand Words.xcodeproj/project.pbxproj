@@ -20,6 +20,7 @@
 		101ED39C1B828866003011AB /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 101ED39B1B828866003011AB /* Album.m */; };
 		10907FF91B838828005A431A /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FF81B838828005A431A /* CoreDataHelper.m */; };
 		10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */; };
+		10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		10907FF81B838828005A431A /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		10907FFA1B838B37005A431A /* PhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewController.h; sourceTree = "<group>"; };
 		10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewController.m; sourceTree = "<group>"; };
+		10907FFD1B838DB7005A431A /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				101ED3981B82853D003011AB /* AlbumTableViewController.m */,
 				10907FFA1B838B37005A431A /* PhotosCollectionViewController.h */,
 				10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */,
+				10907FFD1B838DB7005A431A /* PhotoCollectionViewCell.h */,
+				10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */,
 				10907FF71B838828005A431A /* CoreDataHelper.h */,
 				10907FF81B838828005A431A /* CoreDataHelper.m */,
 				101ED39A1B828866003011AB /* Album.h */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */,
+				10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */,
 				101ED3721B82828A003011AB /* AppDelegate.m in Sources */,
 				101ED36F1B828289003011AB /* main.m in Sources */,
 				101ED39C1B828866003011AB /* Album.m in Sources */,
