@@ -62,6 +62,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="OYP-7P-oU6" kind="show" id="nT1-se-VUe"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
