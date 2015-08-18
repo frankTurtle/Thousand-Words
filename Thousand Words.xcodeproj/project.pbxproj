@@ -24,6 +24,7 @@
 		109080011B83903D005A431A /* nysSignIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 109080001B83903D005A431A /* nysSignIcon.png */; };
 		109080041B839959005A431A /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 109080031B839959005A431A /* Album.m */; };
 		109080071B839959005A431A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 109080061B839959005A431A /* Photo.m */; };
+		1090800B1B839A53005A431A /* PictureDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1090800A1B839A53005A431A /* PictureDataTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		109080031B839959005A431A /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		109080051B839959005A431A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		109080061B839959005A431A /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		109080091B839A53005A431A /* PictureDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictureDataTransformer.h; path = "Thousand Words/PictureDataTransformer.h"; sourceTree = "<group>"; };
+		1090800A1B839A53005A431A /* PictureDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictureDataTransformer.m; path = "Thousand Words/PictureDataTransformer.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				109080061B839959005A431A /* Photo.m */,
 				109080021B839959005A431A /* Album.h */,
 				109080031B839959005A431A /* Album.m */,
+				109080091B839A53005A431A /* PictureDataTransformer.h */,
+				1090800A1B839A53005A431A /* PictureDataTransformer.m */,
 			);
 			name = CoreData;
 			path = ..;
@@ -274,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1090800B1B839A53005A431A /* PictureDataTransformer.m in Sources */,
 				101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */,
 				10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */,
 				101ED3721B82828A003011AB /* AppDelegate.m in Sources */,
