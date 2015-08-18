@@ -8,6 +8,9 @@
 
 #import "PhotosCollectionViewController.h"
 #import "PhotoCollectionViewCell.h"
+#import "Photo.h"
+#import "PictureDataTransformer.h"
+#import "CoreDataHelper.h"
 
 @interface PhotosCollectionViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -142,6 +145,25 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     NSLog(@"CANCEL!"); //............................................... log it was pressed
     [self dismissViewControllerAnimated:YES completion:nil]; //......... dismiss VC
+}
+
+#pragma mark - Helper
+// Method to persist the photo to core data
+// returns a photo object
+-(Photo *)photoFromImage:(UIImage *)image
+{
+    Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo"
+                                                 inManagedObjectContext:[CoreDataHelper managedObjectContext]];
+    
+    photo.image = image;
+    photo.date = [NSDate date];
+    photo.albumBook = self.album;
+    
+    NSError *error = nil;
+    if (![[photo managedObjectContext] save:&error])
+        NSLog(@"%@", error); //. print error
+    
+    return photo;
 }
 
 @end
