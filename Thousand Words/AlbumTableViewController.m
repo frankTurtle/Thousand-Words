@@ -8,6 +8,7 @@
 
 #import "AlbumTableViewController.h"
 #import "Album.h"
+#import "CoreDataHelper.h"
 
 @interface AlbumTableViewController () <UIAlertViewDelegate>
 
@@ -29,12 +30,9 @@
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                    ascending:YES]];  //......... way to sort the response back from core data by date
     
-    id delegate = [[UIApplication sharedApplication] delegate]; //.............................. get access to shared delegate to access context
-    NSManagedObjectContext *context = [delegate managedObjectContext]; //....................... get current context
-    
     NSError *error = nil; //.................................................................... variable to hold an error, use at fetch request
     
-    NSArray *fetchedAlbums = [context executeFetchRequest:fetchRequest error:&error]; //........ create an array of albums from core data fetch request
+    NSArray *fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error]; //........ create an array of albums from core data fetch request
     self.cellData = [fetchedAlbums mutableCopy]; //............................................. mutable copy that to our cellData array
     
     [self.tableView reloadData]; //............................................................. reload table with updated data
@@ -79,8 +77,7 @@
 // Method to return an album object with the name
 -(Album *)albumWithName:(NSString *)name
 {
-    id delegate = [[UIApplication sharedApplication] delegate]; //................... get app delegate
-    NSManagedObjectContext *context = [delegate managedObjectContext]; //............ get NSMAnaged context from app delegate
+    NSManagedObjectContext *context = [CoreDataHelper managedObjectContext]; //...... get NSMAnaged context from app delegate
     
     Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album"
                                                  inManagedObjectContext:context]; //. create new album object
