@@ -25,6 +25,7 @@
 		10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */; };
 		109080011B83903D005A431A /* nysSignIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 109080001B83903D005A431A /* nysSignIcon.png */; };
 		1090800B1B839A53005A431A /* PictureDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1090800A1B839A53005A431A /* PictureDataTransformer.m */; };
+		10C7918F1B83DA3500462D44 /* FiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C7918E1B83DA3500462D44 /* FiltersCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		109080001B83903D005A431A /* nysSignIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nysSignIcon.png; sourceTree = "<group>"; };
 		109080091B839A53005A431A /* PictureDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictureDataTransformer.h; path = "Thousand Words/PictureDataTransformer.h"; sourceTree = "<group>"; };
 		1090800A1B839A53005A431A /* PictureDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictureDataTransformer.m; path = "Thousand Words/PictureDataTransformer.m"; sourceTree = "<group>"; };
+		10C7918D1B83DA3500462D44 /* FiltersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersCollectionViewController.h; sourceTree = "<group>"; };
+		10C7918E1B83DA3500462D44 /* FiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */,
 				104AAFC91B83C427003798A6 /* PhotoDetailViewController.h */,
 				104AAFCA1B83C427003798A6 /* PhotoDetailViewController.m */,
+				10C7918D1B83DA3500462D44 /* FiltersCollectionViewController.h */,
+				10C7918E1B83DA3500462D44 /* FiltersCollectionViewController.m */,
 				101ED3761B82828A003011AB /* ViewController.h */,
 				101ED3771B82828A003011AB /* ViewController.m */,
 				101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */,
@@ -288,6 +293,7 @@
 				101ED3751B82828A003011AB /* Thousand_Words.xcdatamodeld in Sources */,
 				10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */,
 				104AAFC51B83C25B003798A6 /* Photo.m in Sources */,
+				10C7918F1B83DA3500462D44 /* FiltersCollectionViewController.m in Sources */,
 				10907FF91B838828005A431A /* CoreDataHelper.m in Sources */,
 				104AAFCB1B83C427003798A6 /* PhotoDetailViewController.m in Sources */,
 				104AAFC81B83C25C003798A6 /* Album.m in Sources */,

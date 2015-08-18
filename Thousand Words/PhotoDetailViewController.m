@@ -51,8 +51,14 @@
 // Method to handle the delete button being pressed
 - (IBAction)deleteButtonPressed:(id)sender
 {
-    [[self.photo managedObjectContext] deleteObject:self.photo]; //.. delete the photo object
+    NSError *error = nil;
     
+    [[self.photo managedObjectContext] save:&error]; //............. not nessary if only deploying to device
+    
+    if (error)
+        NSLog(@"%@", error);
+    
+    [[self.photo managedObjectContext] deleteObject:self.photo]; //.. delete the photo object
     [self.navigationController popViewControllerAnimated:YES]; //.... used a push segue to get here, pop the current one off stack
 }
 @end
