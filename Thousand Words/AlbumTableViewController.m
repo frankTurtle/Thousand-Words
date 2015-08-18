@@ -17,12 +17,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+// Method to fill the cellData with generated albums from core data
+// after filling cellData it reloads the tableview
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated]; //......................................................... required
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"]; //..... creates a NSFetchRequest for all of our Albums
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date"
+                                                                   ascending:YES]];  //......... way to sort the response back from core data by date
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    id delegate = [[UIApplication sharedApplication] delegate]; //.............................. get access to shared delegate to access context
+    NSManagedObjectContext *context = [delegate managedObjectContext]; //....................... get current context
+    
+    NSError *error = nil; //.................................................................... variable to hold an error, use at fetch request
+    
+    NSArray *fetchedAlbums = [context executeFetchRequest:fetchRequest error:&error]; //........ create an array of albums from core data fetch request
+    self.cellData = [fetchedAlbums mutableCopy]; //............................................. mutable copy that to our cellData array
+    
+    [self.tableView reloadData]; //............................................................. reload table with updated data
 }
 
 -(NSMutableArray *)cellData
@@ -104,49 +119,5 @@
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
