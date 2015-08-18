@@ -22,6 +22,8 @@
 		10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */; };
 		10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */; };
 		109080011B83903D005A431A /* nysSignIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 109080001B83903D005A431A /* nysSignIcon.png */; };
+		109080041B839959005A431A /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 109080031B839959005A431A /* Album.m */; };
+		109080071B839959005A431A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 109080061B839959005A431A /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		10907FFD1B838DB7005A431A /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		109080001B83903D005A431A /* nysSignIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nysSignIcon.png; sourceTree = "<group>"; };
+		109080021B839959005A431A /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		109080031B839959005A431A /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		109080051B839959005A431A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		109080061B839959005A431A /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +127,7 @@
 				101ED37C1B82828A003011AB /* Images.xcassets */,
 				109080001B83903D005A431A /* nysSignIcon.png */,
 				101ED37E1B82828A003011AB /* LaunchScreen.xib */,
-				101ED3731B82828A003011AB /* Thousand_Words.xcdatamodeld */,
+				109080081B839982005A431A /* CoreData */,
 				101ED36C1B828289003011AB /* Supporting Files */,
 			);
 			path = "Thousand Words";
@@ -151,6 +157,19 @@
 				101ED38A1B82828A003011AB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		109080081B839982005A431A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				101ED3731B82828A003011AB /* Thousand_Words.xcdatamodeld */,
+				109080051B839959005A431A /* Photo.h */,
+				109080061B839959005A431A /* Photo.m */,
+				109080021B839959005A431A /* Album.h */,
+				109080031B839959005A431A /* Album.m */,
+			);
+			name = CoreData;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,10 +277,12 @@
 				101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */,
 				10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */,
 				101ED3721B82828A003011AB /* AppDelegate.m in Sources */,
+				109080041B839959005A431A /* Album.m in Sources */,
 				101ED36F1B828289003011AB /* main.m in Sources */,
 				101ED39C1B828866003011AB /* Album.m in Sources */,
 				101ED3781B82828A003011AB /* ViewController.m in Sources */,
 				101ED3751B82828A003011AB /* Thousand_Words.xcdatamodeld in Sources */,
+				109080071B839959005A431A /* Photo.m in Sources */,
 				10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */,
 				10907FF91B838828005A431A /* CoreDataHelper.m in Sources */,
 			);
@@ -478,7 +499,8 @@
 				101ED3741B82828A003011AB /* Thousand_Words.xcdatamodel */,
 			);
 			currentVersion = 101ED3741B82828A003011AB /* Thousand_Words.xcdatamodel */;
-			path = Thousand_Words.xcdatamodeld;
+			name = Thousand_Words.xcdatamodeld;
+			path = "Thousand Words/Thousand_Words.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
