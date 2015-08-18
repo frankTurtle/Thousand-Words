@@ -72,7 +72,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.imageView.image = self.photos[indexPath.row];
+    Photo *photo = self.photos[indexPath.row]; //.............. create photo from photo array
+    cell.imageView.image = photo.image; //..................... set the cell imageview image to the photo image
     
     return cell;
 }
@@ -132,7 +133,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if (!image) //.................................................................................................... if image wasnt edited
         image = info[UIImagePickerControllerOriginalImage]; //........................................................ set it to the original
     
-    [self.photos addObject:image]; //................................................................................. add photo to photos array
+    [self.photos addObject:[self photoFromImage:image]]; //........................................................... add photo to photos array
     [self.collectionView reloadData]; //.............................................................................. reload collection view data
     
     [self dismissViewControllerAnimated:YES completion:nil]; //....................................................... dismiss VC
