@@ -21,6 +21,7 @@
 		10907FF91B838828005A431A /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FF81B838828005A431A /* CoreDataHelper.m */; };
 		10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */; };
 		10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */; };
+		109080011B83903D005A431A /* nysSignIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 109080001B83903D005A431A /* nysSignIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewController.m; sourceTree = "<group>"; };
 		10907FFD1B838DB7005A431A /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		109080001B83903D005A431A /* nysSignIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nysSignIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */,
 				101ED3791B82828A003011AB /* Main.storyboard */,
 				101ED37C1B82828A003011AB /* Images.xcassets */,
+				109080001B83903D005A431A /* nysSignIcon.png */,
 				101ED37E1B82828A003011AB /* LaunchScreen.xib */,
 				101ED3731B82828A003011AB /* Thousand_Words.xcdatamodeld */,
 				101ED36C1B828289003011AB /* Supporting Files */,
@@ -232,6 +235,7 @@
 			files = (
 				101ED37B1B82828A003011AB /* Main.storyboard in Resources */,
 				101ED3961B8284A0003011AB /* Test_Storyboard.storyboard in Resources */,
+				109080011B83903D005A431A /* nysSignIcon.png in Resources */,
 				101ED3801B82828A003011AB /* LaunchScreen.xib in Resources */,
 				101ED37D1B82828A003011AB /* Images.xcassets in Resources */,
 			);
