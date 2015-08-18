@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="1345" y="411"/>
         </scene>
-        <!--Photos Collection View Controller-->
+        <!--Title-->
         <scene sceneID="biF-xy-vS0">
             <objects>
                 <collectionViewController id="ZBK-xi-qzI" customClass="PhotosCollectionViewController" sceneMemberID="viewController">
@@ -69,6 +69,16 @@
                             <outlet property="delegate" destination="ZBK-xi-qzI" id="xAe-EF-NjQ"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ryK-3U-agk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="rHa-72-oA9">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="ZBK-xi-qzI" id="U5i-86-w1G"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95L-H1-Hbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

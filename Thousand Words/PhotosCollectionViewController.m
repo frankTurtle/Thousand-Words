@@ -9,7 +9,7 @@
 #import "PhotosCollectionViewController.h"
 #import "PhotoCollectionViewCell.h"
 
-@interface PhotosCollectionViewController ()
+@interface PhotosCollectionViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @end
 
@@ -95,5 +95,38 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+#pragma mark - Buttons
+// Method to handle the camera button being pressed
+// goes to the camera or the photo library if camera is not available
+- (IBAction)cameraButtonPressed:(id)sender
+{
+    UIImagePickerController *picker = [UIImagePickerController new]; //............................................ create UIPickerController object
+    picker.delegate = self; //..................................................................................... assign its delegate
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) //................ if the camera is available
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera; //............................................ set sourceType to camera
+    else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) //. if camera is not
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; //.................................. use saved photos
+    
+    [self presentViewController:picker animated:YES completion:nil]; //............................................ show picker modally
+}
+
+#pragma mark - Image Picker Delegate Methods
+// Method to handle when you picked an image
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSLog(@"Finished picking");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Method to handle when you cancel in the picker
+// logs it was pressed
+// dismisses current VC
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"CANCEL!"); //............................................... log it was pressed
+    [self dismissViewControllerAnimated:YES completion:nil]; //......... dismiss VC
+}
 
 @end

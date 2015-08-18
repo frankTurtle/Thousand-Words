@@ -10,4 +10,6 @@
 
 @interface PhotosCollectionViewController : UICollectionViewController
 
+- (IBAction)cameraButtonPressed:(id)sender;
+
 @end

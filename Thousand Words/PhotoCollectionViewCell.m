@@ -32,7 +32,7 @@
 
 // Method that sets up the imageView property
 // sets the image to teh same center point as the bounds of the cell
-// sets it 5 points in from the bounds of the cell ( gives a white border )
+// sets it 5 points in from the bounds of the cell
 -(void)setup
 {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, IMAGEVIEW_BORDER_LENGTH, IMAGEVIEW_BORDER_LENGTH)];
