@@ -19,6 +19,7 @@
 		101ED3991B82853D003011AB /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101ED3981B82853D003011AB /* AlbumTableViewController.m */; };
 		104AAFC51B83C25B003798A6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AAFC41B83C25B003798A6 /* Photo.m */; };
 		104AAFC81B83C25C003798A6 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AAFC71B83C25C003798A6 /* Album.m */; };
+		104AAFCB1B83C427003798A6 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AAFCA1B83C427003798A6 /* PhotoDetailViewController.m */; };
 		10907FF91B838828005A431A /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FF81B838828005A431A /* CoreDataHelper.m */; };
 		10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */; };
 		10907FFF1B838DB7005A431A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */; };
@@ -58,6 +59,8 @@
 		104AAFC41B83C25B003798A6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		104AAFC61B83C25C003798A6 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		104AAFC71B83C25C003798A6 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		104AAFC91B83C427003798A6 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		104AAFCA1B83C427003798A6 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		10907FF71B838828005A431A /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = "Thousand Words/CoreDataHelper.h"; sourceTree = "<group>"; };
 		10907FF81B838828005A431A /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = "Thousand Words/CoreDataHelper.m"; sourceTree = "<group>"; };
 		10907FFA1B838B37005A431A /* PhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewController.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				10907FFB1B838B37005A431A /* PhotosCollectionViewController.m */,
 				10907FFD1B838DB7005A431A /* PhotoCollectionViewCell.h */,
 				10907FFE1B838DB7005A431A /* PhotoCollectionViewCell.m */,
+				104AAFC91B83C427003798A6 /* PhotoDetailViewController.h */,
+				104AAFCA1B83C427003798A6 /* PhotoDetailViewController.m */,
 				101ED3761B82828A003011AB /* ViewController.h */,
 				101ED3771B82828A003011AB /* ViewController.m */,
 				101ED3951B8284A0003011AB /* Test_Storyboard.storyboard */,
@@ -284,6 +289,7 @@
 				10907FFC1B838B37005A431A /* PhotosCollectionViewController.m in Sources */,
 				104AAFC51B83C25B003798A6 /* Photo.m in Sources */,
 				10907FF91B838828005A431A /* CoreDataHelper.m in Sources */,
+				104AAFCB1B83C427003798A6 /* PhotoDetailViewController.m in Sources */,
 				104AAFC81B83C25C003798A6 /* Album.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
