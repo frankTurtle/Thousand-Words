@@ -11,6 +11,8 @@
 
 @interface PhotosCollectionViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (strong,nonatomic) NSMutableArray *photos; //.... holds UIImages
+
 @end
 
 @implementation PhotosCollectionViewController
@@ -27,6 +29,15 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+}
+
+// if photos doesnt exist, fix it.
+-(NSMutableArray *)photos
+{
+    if (!_photos)
+        _photos = [NSMutableArray new];
+    
+    return _photos;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,15 +63,13 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return [self.photos count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
-    
-    cell.imageView.image = [UIImage imageNamed:@"nysSignIcon.png"];
+    cell.imageView.image = self.photos[indexPath.row];
     
     return cell;
 }
@@ -116,8 +125,14 @@ static NSString * const reuseIdentifier = @"Cell";
 // Method to handle when you picked an image
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"Finished picking");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerEditedImage]; //..................................................... gets value from info dict for key UIImagePickerControllerEditedImage
+    if (!image) //.................................................................................................... if image wasnt edited
+        image = info[UIImagePickerControllerOriginalImage]; //........................................................ set it to the original
+    
+    [self.photos addObject:image]; //................................................................................. add photo to photos array
+    [self.collectionView reloadData]; //.............................................................................. reload collection view data
+    
+    [self dismissViewControllerAnimated:YES completion:nil]; //....................................................... dismiss VC
 }
 
 // Method to handle when you cancel in the picker
