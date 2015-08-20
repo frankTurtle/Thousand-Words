@@ -8,6 +8,7 @@
 
 #import "FiltersCollectionViewController.h"
 #import "PhotoCollectionViewCell.h"
+#import "Photo.h"
 
 @interface FiltersCollectionViewController ()
 
@@ -41,6 +42,27 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Helpers
+// Method to return ana rray full of different filters
++(NSArray *)photoFilters
+{
+    CIFilter *sepia =         [CIFilter filterWithName:@"CISepiaTone" keysAndValues:nil, nil];
+    CIFilter *blur =          [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:nil, nil];
+    CIFilter *colorClamp =    [CIFilter filterWithName:@"CIColorClamp" keysAndValues:@"inputMaxComponents", [CIVector vectorWithX:0.9 Y:0.9 Z:0.9 W:0.9],
+                                                                                  @"inputMinComponents", [CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
+    CIFilter *instance =      [CIFilter filterWithName:@"CIPhotoEffectInstant" keysAndValues:nil, nil];
+    CIFilter *noir =          [CIFilter filterWithName:@"CIPhotoEffectNoir"  keysAndValues:nil, nil];
+    CIFilter *vignette =      [CIFilter filterWithName:@"CIVignetteEffect" keysAndValues:nil, nil];
+    CIFilter *colorControls = [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputSaturationKey, @0.5, nil];
+    CIFilter *transfer =      [CIFilter filterWithName:@"CIPhotoEffectTransfer" keysAndValues:nil, nil];
+    CIFilter *unsharpen =     [CIFilter filterWithName:@"CIUnsharpMask" keysAndValues:nil, nil];
+    CIFilter *monochrome =    [CIFilter filterWithName:@"CIColorMonochrome" keysAndValues:nil, nil];
+    
+    NSArray *allFilters = @[ sepia, blur, colorClamp, instance, noir, vignette, colorControls, transfer, unsharpen, monochrome ];
+    
+    return allFilters;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -59,7 +81,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return [self.filters count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,7 +89,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell
     
-    
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.imageView.image = self.photo.image;
     
     return cell;
 }
