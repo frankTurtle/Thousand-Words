@@ -13,6 +13,7 @@
 @interface FiltersCollectionViewController ()
 
 @property (strong,nonatomic) NSMutableArray *filters; //.. property to hold all filter objects
+@property (strong,nonatomic) CIContext *context; //....... property for the context
 
 @end
 
@@ -26,6 +27,8 @@ static NSString * const reuseIdentifier = @"Cell";
     // Register cell classes
     [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
+    self.filters = [[[self class] photoFilters] mutableCopy]; //..................................................... call class method
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,6 +38,12 @@ static NSString * const reuseIdentifier = @"Cell";
         _filters = [NSMutableArray new];
     
     return _filters;
+}
+
+-(CIContext *)context
+{
+    if(!_context) _context = [CIContext contextWithOptions:nil];
+    return _context;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +58,7 @@ static NSString * const reuseIdentifier = @"Cell";
     CIFilter *sepia =         [CIFilter filterWithName:@"CISepiaTone" keysAndValues:nil, nil];
     CIFilter *blur =          [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:nil, nil];
     CIFilter *colorClamp =    [CIFilter filterWithName:@"CIColorClamp" keysAndValues:@"inputMaxComponents", [CIVector vectorWithX:0.9 Y:0.9 Z:0.9 W:0.9],
-                                                                                  @"inputMinComponents", [CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
+                                                                                     @"inputMinComponents", [CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
     CIFilter *instance =      [CIFilter filterWithName:@"CIPhotoEffectInstant" keysAndValues:nil, nil];
     CIFilter *noir =          [CIFilter filterWithName:@"CIPhotoEffectNoir"  keysAndValues:nil, nil];
     CIFilter *vignette =      [CIFilter filterWithName:@"CIVignetteEffect" keysAndValues:nil, nil];
@@ -61,6 +70,25 @@ static NSString * const reuseIdentifier = @"Cell";
     NSArray *allFilters = @[ sepia, blur, colorClamp, instance, noir, vignette, colorControls, transfer, unsharpen, monochrome ];
     
     return allFilters;
+}
+
+// Method to filter an image
+// convert the image so we can apply the filter
+// convert back to UIImage so we can use in the view
+-(UIImage *)filterdImageFromImage:(UIImage *)image andFilter:(CIFilter *)filter
+{
+    CIImage *unfilteredImage = [[CIImage alloc] initWithCGImage:image.CGImage]; //...... convert UIImage into CGIMage
+    
+    [filter setValue:unfilteredImage forKey:kCIInputImageKey]; //....................... send image to filter using key kCIImageInputKey
+    
+    CIImage *filteredImage = [filter outputImage]; //................................... CIImage with filter applied
+    
+    CGRect extent = [filteredImage extent]; //.......................................... gets how large the image is
+    CGImageRef cgImage = [self.context createCGImage:filteredImage fromRect:extent]; //. gives us a CGImage  to be able to convert into UIIMage
+    
+    UIImage *finalImage = [UIImage imageWithCGImage:cgImage]; //........................ create uIImage with CGImage we just created
+    
+    return finalImage;
 }
 
 /*
