@@ -56,18 +56,20 @@ static NSString * const reuseIdentifier = @"Cell";
 +(NSArray *)photoFilters
 {
     CIFilter *sepia =         [CIFilter filterWithName:@"CISepiaTone" keysAndValues:nil, nil];
-    CIFilter *blur =          [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:nil, nil];
-    CIFilter *colorClamp =    [CIFilter filterWithName:@"CIColorClamp" keysAndValues:@"inputMaxComponents", [CIVector vectorWithX:0.9 Y:0.9 Z:0.9 W:0.9],
-                                                                                     @"inputMinComponents", [CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
-    CIFilter *instance =      [CIFilter filterWithName:@"CIPhotoEffectInstant" keysAndValues:nil, nil];
-    CIFilter *noir =          [CIFilter filterWithName:@"CIPhotoEffectNoir"  keysAndValues:nil, nil];
-    CIFilter *vignette =      [CIFilter filterWithName:@"CIVignetteEffect" keysAndValues:nil, nil];
-    CIFilter *colorControls = [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputSaturationKey, @0.5, nil];
-    CIFilter *transfer =      [CIFilter filterWithName:@"CIPhotoEffectTransfer" keysAndValues:nil, nil];
-    CIFilter *unsharpen =     [CIFilter filterWithName:@"CIUnsharpMask" keysAndValues:nil, nil];
-    CIFilter *monochrome =    [CIFilter filterWithName:@"CIColorMonochrome" keysAndValues:nil, nil];
+//    CIFilter *blur =          [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:nil, nil];
+//    CIFilter *colorClamp =    [CIFilter filterWithName:@"CIColorClamp" keysAndValues:@"inputMaxComponents", [CIVector vectorWithX:0.9 Y:0.9 Z:0.9 W:0.9],
+//                                                                                     @"inputMinComponents", [CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
+//    CIFilter *instance =      [CIFilter filterWithName:@"CIPhotoEffectInstant" keysAndValues:nil, nil];
+//    CIFilter *noir =          [CIFilter filterWithName:@"CIPhotoEffectNoir"  keysAndValues:nil, nil];
+//    CIFilter *vignette =      [CIFilter filterWithName:@"CIVignetteEffect" keysAndValues:nil, nil];
+//    CIFilter *colorControls = [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputSaturationKey, @0.5, nil];
+//    CIFilter *transfer =      [CIFilter filterWithName:@"CIPhotoEffectTransfer" keysAndValues:nil, nil];
+//    CIFilter *unsharpen =     [CIFilter filterWithName:@"CIUnsharpMask" keysAndValues:nil, nil];
+//    CIFilter *monochrome =    [CIFilter filterWithName:@"CIColorMonochrome" keysAndValues:nil, nil];
+//    
+//    NSArray *allFilters = @[ sepia, blur, colorClamp, instance, noir, vignette, colorControls, transfer, unsharpen, monochrome ];
     
-    NSArray *allFilters = @[ sepia, blur, colorClamp, instance, noir, vignette, colorControls, transfer, unsharpen, monochrome ];
+    NSArray *allFilters = @[sepia];
     
     return allFilters;
 }
@@ -104,7 +106,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 0;
+    return 1;
 }
 
 
@@ -118,7 +120,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Configure the cell
     
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = self.photo.image;
+    cell.imageView.image = [self filterdImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
     
     return cell;
 }
