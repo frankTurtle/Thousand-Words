@@ -120,7 +120,20 @@ static NSString * const reuseIdentifier = @"Cell";
     // Configure the cell
     
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = [self filterdImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
+    
+    dispatch_queue_t filterQueue = dispatch_queue_create("filter queue", NULL); //...................................................... created queue named filter queue
+    
+    dispatch_async(filterQueue,
+                   ^{
+                        UIImage *filterImage = [self filterdImageFromImage:self.photo.image
+                                                                 andFilter:self.filters[indexPath.row]]; //............................. create a temp UIImage on the other thread
+                        
+                        dispatch_async(dispatch_get_main_queue(), //.................................................................... go back to main thread to set the image
+                        ^{
+                            cell.imageView.image = filterImage; //...................................................................... set the image
+                        });
+        
+                    });
     
     return cell;
 }
