@@ -147,12 +147,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.photo.image = selectedCell.imageView.image; //....................................................................... set our image to the cell's image
     
-    NSError *error = nil; //.................................................................................................. create an error if photo is full of lies
-    
-    if (![[self.photo managedObjectContext] save:&error]) //.................................................................. if it errors
-        NSLog(@"%@", error);
-    
-    [self.navigationController popViewControllerAnimated:YES]; //............................................................. pop the VC
+    if (self.photo.image)
+    {   
+        NSError *error = nil; //.................................................................................................. create an error if photo is full of lies
+        
+        if (![[self.photo managedObjectContext] save:&error]) //.................................................................. if it errors
+            NSLog(@"%@", error);
+        
+        [self.navigationController popViewControllerAnimated:YES]; //............................................................. pop the VC
+    }
 }
 
 /*
