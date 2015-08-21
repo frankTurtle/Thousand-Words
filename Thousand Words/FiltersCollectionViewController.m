@@ -125,7 +125,22 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark UICollectionViewDelegate
+// Method to handle what happens when we select a filter
+// stores in core data
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCollectionViewCell *selectedCell = (PhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath]; //.. tells us which cell we've chosen
+    
+    self.photo.image = selectedCell.imageView.image; //....................................................................... set our image to the cell's image
+    
+    NSError *error = nil; //.................................................................................................. create an error if photo is full of lies
+    
+    if (![[self.photo managedObjectContext] save:&error]) //.................................................................. if it errors
+        NSLog(@"%@", error);
+    
+    [self.navigationController popViewControllerAnimated:YES]; //............................................................. pop the VC
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
